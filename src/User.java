@@ -1,14 +1,14 @@
-
+import java.util.ArrayList;
 import javalib.worldimages.*;
 
 public class User {
 	String username;
 	String password;
-	Stock[] stocks;
+	ArrayList<Stock> stocks;
 	double balance;
 	Utils utils;
 	
-	User(String username, String password, Stock[] stocks, double balance) {
+	User(String username, String password, ArrayList<Stock> stocks, double balance) {
 		this.username = username;
 		this.password = password;
 		this.stocks = stocks;
@@ -61,24 +61,9 @@ public class User {
 		return sold;
 	}
 	
-	public Stock[] buyOrder(String sym, int num, Stock[] stocks) {
-		int tempNum = num;
-		for(Stock item : stocks) {
-			if(item.sameStock(sym) && this.balance > 0) {
-				this.balance -= item.sellStock();
-				tempNum --;
-				item = null;
-				Stock[] temp = new Stock[this.stocks.length + 1];
-				temp[0] = item;
-				int x = 1;
-				for(Stock stock : this.stocks) {
-					temp[x] = stock;
-					x ++;
-				}
-				this.stocks = temp;
-			}
-			
-			if(tempNum == 0) break;
+	public ArrayList<Stock> buyOrder(String sym, int num, ArrayList<Stock> stocks) {
+		for (int i = num; i > 0; i--) {
+
 		}
 		return stocks;
 	}

@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+import java.util.ArrayList;
 import javalib.worldimages.*;
 
 public class Stock {
@@ -33,7 +33,7 @@ public class Stock {
 		return this.price;
 	}
 
-	public boolean containsStock(Stock[] stocks) {
+	public boolean containsStock(ArrayList<Stock> stocks) {
 		boolean contains = false;
 		for(Stock item : stocks) {
 			if(item == null) break;

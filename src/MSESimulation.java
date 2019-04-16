@@ -1,11 +1,11 @@
 import java.awt.Color;
-
+import java.util.ArrayList;
 import javalib.funworld.*;
 import javalib.worldimages.*;
 import tester.Tester;
 
 public class MSESimulation extends World{
-	Stock[] stocks;
+	ArrayList<Stock> stocks;
 	User user;
 	boolean login;
 
@@ -19,7 +19,7 @@ public class MSESimulation extends World{
 
 	Utils utils;
 
-	MSESimulation(Stock[] stocks, User user) {
+	MSESimulation(ArrayList<Stock> stocks, User user) {
 		this.stocks = stocks;
 		this.user = user;
 		this.login = false;
@@ -170,8 +170,7 @@ public class MSESimulation extends World{
 		}
 	}
 
-	void buyOrder(String sym, int num) {
-		this.stocks = this.user.buyOrder(sym, num, this.stocks);
+	void buyOrder(String sym, int num) { this.stocks = this.user.buyOrder(sym, num, this.stocks);
 	}
 
 	void sellOrder(String sym, int num) {
